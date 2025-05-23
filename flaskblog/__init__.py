@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import os
 
 # Load variables from .env file
-load_dotenv()
+load_dotenv('/etc/secrets/SECRET_KEY.env')
 
 db= SQLAlchemy()
 bcrypt= Bcrypt()
