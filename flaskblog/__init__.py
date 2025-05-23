@@ -18,12 +18,8 @@ login_manager.login_message_category = 'info'
 def create_app():
     app= Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI']= os.environ.get('DATABASE_URI')
-    #app.config['SECRET_KEY']= os.environ.get('SECRET_KEY')
-
-    # Load secret from file
-    with open('/etc/secrets/SECRET_KEY.env') as f:
-        app.config['SECRET_KEY'] = f.read().strip()
-
+    app.config['SECRET_KEY']= os.environ.get('SECRET_KEY')
+    
 
     db.init_app(app)
     bcrypt.init_app(app)
